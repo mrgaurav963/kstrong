@@ -15,11 +15,13 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser", //Disable for SSR
+          // "builder": "@angular-devkit/build-angular:application", //Enable for SSR
           "options": {
             "outputPath": "dist/portal",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts", //Disable for SSR
+            //  "browser": "src/main.ts",  //Enable for SSR
             "polyfills": [
               "zone.js"
             ],
@@ -34,12 +36,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "scripts": []
+            //Enable for SSR
+            // "server": "src/main.server.ts", 
+            // "outputMode": "server",
+            // "ssr": {
+            //   "entry": "src/server.ts"
+            // }
           },
           "configurations": {
             "production": {

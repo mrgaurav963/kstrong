@@ -1,0 +1,5 @@
+Prepare Build for Github
+ng build --base-href="https://mrgaurav963.github.io/kstrong/"
+
+Deploy Github Pages
+npx angular-cli-ghpages --dir=dist/portal
