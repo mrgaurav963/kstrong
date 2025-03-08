@@ -1,0 +1,35 @@
+<form [formGroup]="formGroup">
+  <div class="d-flex flex-col gap-2 mb-3">
+    <label for="login">Login</label>
+    <input
+      pInputText
+      formControlName="loginId"
+      id="login"
+      aria-describedby="login-help"
+    />
+  </div>
+  <div class="d-flex flex-col gap-2 mb-4">
+    <label for="login">Password</label>
+    <p-password
+      formControlName="password"
+      [feedback]="false"
+      [toggleMask]="true"
+    />
+  </div>
+  <div class="d-flex flex-row gap-2 mb-4">
+    <p-checkbox
+      formControlName="rememberPassword"
+      value="Remember password"
+      inputId="rememberPassword"
+    />
+    <label for="rememberPassword" class="ml-2">Remember password</label>
+    <span class="pipe"> | </span>
+    <a href="#">Forgot password?</a>
+  </div>
+  <p-button
+    label="Login"
+    routerLink="/inventory"
+    routerLinkActive="active"
+    ariaCurrentWhenActive="page"
+  />
+</form>

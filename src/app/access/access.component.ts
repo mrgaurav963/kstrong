@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { ButtonContainedComponent } from "../stand-alone/button-contained/button-contained.component";
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-access',
-  imports: [ButtonContainedComponent],
+  imports: [LoginComponent],
   templateUrl: './access.component.html',
-  styleUrl: './access.component.scss'
+  styleUrl: './access.component.scss',
 })
-export class AccessComponent {
-
-}
+export class AccessComponent {}

@@ -1,19 +1,51 @@
+@use "../../app/theme/global" as *;
 .access-page {
-    background-color: #000000;
-    height: 100vh;
+  background-color: #000000;
+  height: 100vh;
 
-
-    .logo {
-        img {
-            max-width: 480px;
-        }
+  .logo {
+    margin-top: 80px;
+    margin-bottom: 50px;
+    img {
+      max-width: 480px;
     }
+  }
 
-    .cover-img {
-        img {
-            top: 5%;
-            right: 15%;
-            max-height: 700px;
-        }
+  .cover-img {
+    img {
+      top: 5%;
+      right: 15%;
+      max-height: 700px;
     }
+  }
+
+  .access-card {
+    max-width: 540px;
+  }
+  .card {
+    border-color: rgba(256, 256, 256, 0.18);
+    padding: 15px 40px 45px;
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    color: #ffffff;
+  }
+  p {
+    font-size: 15px;
+    color: #ffffff;
+    @include font(200, normal);
+  }
+  .line {
+    height: 600px;
+    background: linear-gradient(
+      to top,
+      rgba(3, 3, 3, 0),
+      rgba(250, 256, 257, 0.3),
+      rgba(0, 0, 0, 0)
+    );
+    position: absolute;
+    width: 2px;
+    top: 20%;
+  }
 }
