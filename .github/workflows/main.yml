@@ -13,24 +13,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Check out the repository
-    - name: Checkout code
-      uses: actions/checkout@v2
+      # Check out the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    # Set up Node.js (this example uses Node.js, adapt for your language)
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      # Set up Node.js (this example uses Node.js, adapt for your language)
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "22"
 
-    # Install dependencies
-    - name: Install dependencies
-      run: npm install
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
 
-    # Run tests (optional)
-    - name: Run tests
-      run: npm test
+      # Run tests (optional)
+      - name: Run tests
+        run: npm test
 
-    # Build the project (if needed)
-    - name: Build the project
-      run: npm run build
+      # Build the project (if needed)
+      - name: Build the project
+        run: npm run build
