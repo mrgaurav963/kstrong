@@ -1,0 +1,49 @@
+.page-datagrid {
+  ::ng-deep .p-datatable.p-datatable-sm {
+    .p-datatable-header {
+      padding-top: 0;
+      border: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .p-datatable-thead > tr {
+      th {
+        background: #000000;
+        color: #ffffff;
+        padding: 6px 12px;
+        font-weight: 600;
+        .p-iconwrapper {
+          vertical-align: middle;
+          .p-icon {
+            width: 9px;
+          }
+        }
+      }
+      + tr th {
+        background: #ddd;
+        button {
+          padding: 0;
+          width: 10px;
+          height: 18px;
+        }
+      }
+    }
+    .p-datatable-table-container {
+      border: 1px solid #ccc;
+    }
+    .p-inputtext {
+      height: 28px;
+      font-size: 12px;
+    }
+    .p-paginator-current {
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  ::ng-deep .p-datatable.p-datatable-striped {
+    .p-datatable-tbody > tr:nth-child(odd) {
+      background: #fbfbfb;
+    }
+  }
+}

@@ -1,22 +1,28 @@
 <p-table
   #dt2
-  [value]="customers"
-  dataKey="id"
-  [rows]="10"
+  class="page-datagrid"
+  [id]="tableData.identifier"
+  [columns]="tableData.columns"
+  [value]="tableData.dataSource"
+  dataKey="partNumber"
+  [rows]="50"
   [rowsPerPageOptions]="[10, 25, 50]"
   [loading]="loading"
   [paginator]="true"
-  [globalFilterFields]="[
-    'name',
-    'country.name',
-    'representative.name',
-    'status'
-  ]"
+  [scrollable]="true"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  size="small"
+  showGridlines
+  stripedRows
+  [exportHeader]="'customExportHeader'"
+  [globalFilterFields]="['partNumber', 'name', 'total', 'asOf']"
   [tableStyle]="{ 'min-width': '75rem' }"
 >
-  <!-- <ng-template #caption>
-        <div class="flex">
-            <p-iconfield iconPosition="left" class="ml-auto">
+  <ng-template #caption>
+    <div class="d-flex justify-content-between">
+      <h1>Inventory</h1>
+      <!-- <p-iconfield iconPosition="left" class="ml-auto">
                 <p-inputicon>
                     <i class="pi pi-search"></i>
                 </p-inputicon>
@@ -26,80 +32,66 @@
                     (input)="dt2.filterGlobal($event.target.value, 'contains')"
                     placeholder="Search keyword"
                 />
-            </p-iconfield>
-        </div>
-    </ng-template> -->
-  <ng-template #header>
+            </p-iconfield> -->
+      <div class="text-end pb-4">
+        <p-button
+          icon="pi pi-external-link"
+          label="Export"
+          (click)="dt2.exportCSV()"
+        />
+      </div>
+    </div>
+  </ng-template>
+  <ng-template #header let-columns>
     <tr>
-      <th style="width: 22%">Part Number</th>
-      <th style="width: 22%">Name</th>
-      <th style="width: 22%">Total</th>
-      <th style="width: 22%">As Of</th>
+      @for(col of columns; track col) {
+      <th pSortableColumn="{{ col.field }}">
+        {{ col.header }} <p-sortIcon field="{{ col.field }}" />
+      </th>
+      }
     </tr>
     <tr>
+      @for(col of columns; track col) {
       <th>
         <p-columnFilter
           type="text"
-          field="partNumber"
-          placeholder="Search by part number"
-          ariaLabel="Filter Part Number"
+          field="{{ col.field }}"
+          placeholder="Search by {{ col.header }}"
+          ariaLabel="Filter {{ col.header }}"
         ></p-columnFilter>
       </th>
-      <th>
-        <p-columnFilter
-          type="text"
-          field="country.name"
-          placeholder="Search by total"
-          ariaLabel="Filter Total"
-        ></p-columnFilter>
-      </th>
-      <th>
-        <p-columnFilter
-          type="text"
-          field="country.name"
-          placeholder="Search by name"
-          ariaLabel="Filter Name"
-        ></p-columnFilter>
-      </th>
-      <th>
-        <p-columnFilter
-          type="text"
-          field="country.asOf"
-          placeholder="Search by As Of"
-          ariaLabel="Filter As Of"
-        ></p-columnFilter>
-      </th>
+      }
     </tr>
   </ng-template>
-  <ng-template #body let-customer>
+  <ng-template #body let-data>
     <tr>
       <td>
-        {{ customer.name }}
+        {{ data.partNumber }}
       </td>
       <td>
         <div class="flex items-center gap-2">
-          <img
+          <!-- <img
             src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
-            [class]="'flag flag-' + customer.country.code"
+            [class]="'flag flag-' + data.country.code"
             style="width: 20px"
-          />
-          <span>{{ customer.country.name }}</span>
+          /> -->
+          <span>{{ data.name }}</span>
         </div>
       </td>
       <td>
         <div class="flex items-center gap-2">
-          <img
+          <!-- <img
             [alt]="customer.representative.name"
             src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{
               customer.representative.image
             }}"
             width="32"
             style="vertical-align: middle"
-          />
-          <span>{{ customer.representative.name }}</span>
+          /> -->
+          <span>{{ data.total }}</span>
         </div>
       </td>
-      <td></td>
+      <td>{{ data.asOf }}</td>
     </tr>
   </ng-template>
   <ng-template #emptymessage>

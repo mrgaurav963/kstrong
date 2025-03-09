@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @use "app/theme/global" as *;
+@import "primeicons/primeicons.css";
 
 body {
   margin: 0;
   overflow: hidden;
+  font-size: 14px;
   @include font(400, normal);
 }
 
@@ -74,6 +76,9 @@ body {
 .mb-4 {
   margin-bottom: 1rem;
 }
+.fw-bold {
+  @include font(600, "normal");
+}
 .absolute {
   position: absolute;
 }
@@ -101,6 +106,9 @@ small {
 .justify-content-center {
   justify-content: center;
 }
+.justify-content-between {
+  justify-content: space-between;
+}
 .align-items-center {
   align-items: center;
 }
@@ -108,6 +116,9 @@ small {
 //Styling
 a {
   color: #cc1e26;
+}
+h1 {
+  margin: 0;
 }
 //Forms
 label,
