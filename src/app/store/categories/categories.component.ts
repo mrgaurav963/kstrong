@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
 import { MenuModule } from 'primeng/menu';
-import { RouterLink } from '@angular/router';
-import { NgIf } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
-  imports: [MenuModule, RouterLink, NgIf],
+  imports: [MenuModule, RouterLink, RouterLinkActive],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss',
 })
 export class CategoriesComponent {
   productCategories = [
-    { label: 'All Products', routerLink: '/store', routerLinkActiveOptions: 'page' },
+    {
+      label: 'All Products',
+      routerLink: '/store',
+    },
     { label: 'Anchor Straps' },
     { label: 'Anchors' },
     { label: 'Confined Space/Rescue' },

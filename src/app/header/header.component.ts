@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MenuComponent } from './menu/menu.component';
 import { Menu } from 'primeng/menu';
 import { Avatar } from 'primeng/avatar';
+import { AuthService } from '../core/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +12,9 @@ import { Avatar } from 'primeng/avatar';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+  authService = inject(AuthService);
+  isUserAuthentic: boolean = false;
+  router = inject(Router);
   userItems = [
     {
       items: [
@@ -28,9 +33,24 @@ export class HeaderComponent {
         {
           label: 'Log Out',
           icon: 'pi pi-sign-out',
-          routerLink: '/'
+          command: () => {
+            this.logout();
+          },
         },
       ],
     },
   ];
+
+  ngOnInit() {
+    this.authService
+      .isLoggedIn()
+      .subscribe((data) => (this.isUserAuthentic = data));
+    //  this.isUserAuthentic = this.authService.isLoggedIn();
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+    //  this.isUserAuthentic = false;
+  }
 }

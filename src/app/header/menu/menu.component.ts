@@ -13,6 +13,7 @@ export class MenuComponent {
       label: 'Home',
       icon: 'pi pi-home',
       routerLink: '/store',
+      routerLinkActiveOptions: 'page',
     },
     {
       label: 'Customers',
@@ -26,6 +27,7 @@ export class MenuComponent {
       label: 'Inventory',
       icon: 'pi pi-file-edit',
       routerLink: '/inventory',
+      routerLinkActiveOptions: 'page',
     },
     {
       label: 'REP Agencies',

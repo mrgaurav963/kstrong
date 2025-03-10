@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -9,7 +9,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -27,10 +28,27 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
+  authService = inject(AuthService);
+  router = inject(Router);
   loginId!: string;
   formGroup = new FormGroup({
     loginId: new FormControl(),
     password: new FormControl(),
     rememberPassword: new FormControl(),
   });
+
+  login() {
+    if (
+      this.formGroup.value.loginId === 'derick' &&
+      this.formGroup.value.password === 'secured@123'
+    ) {
+      //   if (this.formGroup.loginId === 'admin' && this.password === 'admin') {
+      const mockToken = 'fake-jwt-token'; // Replace with actual token from backend
+      this.authService.login(mockToken);
+      this.router.navigate(['/store']); // Redirect to home page after successful login
+    } else {
+      // this.errorMessage = 'Invalid username or password';
+      console.log('Error');
+    }
+  }
 }

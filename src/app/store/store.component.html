@@ -2,17 +2,40 @@
   <div class="row">
     <div class="category-menu col-2"><app-breadcrumb /><app-categories /></div>
     <div class="products-list col-10">
-      <p-dataview #dv [value]="products" [layout]="layout" [rows]="60" [paginator]="true" [loading]="loading">
+      <p-dataview
+        #dv
+        [value]="products"
+        [layout]="layout"
+        [rows]="60"
+        [paginator]="true"
+        [loading]="loading"
+      >
         <ng-template #header>
-          <div class="flex justify-end">
-            <p-selectbutton (onChange)="changeLayout($event)" [options]="options" [allowEmpty]="false">
+          <div class="d-flex justify-content-between">
+            <p-selectbutton
+              (onChange)="changeLayout($event)"
+              [options]="options"
+              [allowEmpty]="false"
+            >
               <ng-template #item let-item>
-                <i class="pi" [ngClass]="{
+                <i
+                  class="pi"
+                  [ngClass]="{
                     'pi-bars': item === 'list',
                     'pi-table': item === 'grid'
-                  }"></i>
+                  }"
+                ></i>
               </ng-template>
             </p-selectbutton>
+            <div class="search-sort">
+              <input
+                pInputText
+                [formControl]="inputControl"
+                type="text"
+                pSize="small"
+                placeholder="Search Product"
+              />
+            </div>
           </div>
         </ng-template>
         <ng-template #grid let-items>
