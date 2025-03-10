@@ -26,12 +26,15 @@ export class StoreComponent {
   //layout: string = 'grid';
   layout = 'grid' as 'list' | 'grid';
   products!: ProductData[];
-
-  constructor(private storeService: StoreService) {}
+  loading: boolean = true;
+  constructor(private storeService: StoreService) { }
 
   ngOnInit(): void {
     this.storeService.getData().subscribe((data: ProductData[]) => {
       this.products = data;
+      setTimeout(() => {
+        this.loading = false;
+      }, 400);
     });
   }
 

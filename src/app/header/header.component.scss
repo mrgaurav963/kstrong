@@ -4,24 +4,31 @@
     height: auto;
   }
 }
+
 .top-bar {
   padding: 10px 0;
+
   .user-icon {
     background: transparent;
     border: 0;
     text-align: left;
     padding: 20px 0 0;
+
     ::ng-deep img {
       margin-right: 15px;
     }
   }
 }
+
 .menu-bar {
+  background-color: var(--p-red-500);
+
   ::ng-deep .p-menubar {
-    border: 0;
     background-color: var(--p-red-500);
-    padding: 4px 40px;
+    border: 0;
     border-radius: 0;
+    padding: 0;
+
     .p-menubar-item-link,
     .p-menubar-item-icon {
       color: #ffffff;

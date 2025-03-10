@@ -28,6 +28,7 @@ export class HeaderComponent {
         {
           label: 'Log Out',
           icon: 'pi pi-sign-out',
+          routerLink: '/'
         },
       ],
     },

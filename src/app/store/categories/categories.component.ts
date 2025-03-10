@@ -11,7 +11,7 @@ import { NgIf } from '@angular/common';
 })
 export class CategoriesComponent {
   productCategories = [
-    { label: 'All Products' },
+    { label: 'All Products', routerLink: '/store', routerLinkActiveOptions: 'page' },
     { label: 'Anchor Straps' },
     { label: 'Anchors' },
     { label: 'Confined Space/Rescue' },

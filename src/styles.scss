@@ -3,151 +3,195 @@
 @import "primeicons/primeicons.css";
 
 body {
-  margin: 0;
-  overflow: hidden;
-  font-size: 14px;
-  @include font(400, normal);
+    margin: 0;
+    overflow: hidden;
+    font-size: 14px;
+    @include font(400, normal);
 }
 
 .container {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 0 15px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 15px;
+    position: relative;
 }
 
 .row {
-  display: flex;
+    display: flex;
+    width: 100%;
 }
 
 .col-1 {
-  width: 8.33333333%;
+    width: 8.33333333%;
 }
 
 .col-2 {
-  width: 16.6666667%;
+    width: 16.6666667%;
 }
 
 .col-3 {
-  width: 25%;
+    width: 25%;
 }
 
 .col-4 {
-  width: 33.3333333%;
+    width: 33.3333333%;
 }
 
 .col-5 {
-  width: 41.6666667%;
+    width: 41.6666667%;
 }
 
 .col-6 {
-  width: 50%;
+    width: 50%;
 }
 
 .col-7 {
-  width: 58.3333333%;
+    width: 58.3333333%;
 }
 
 .col-8 {
-  width: 66.6666667%;
+    width: 66.6666667%;
 }
 
 .col-9 {
-  width: 75%;
+    width: 75%;
 }
 
 .col-10 {
-  width: 83.3333333%;
+    width: 83.3333333%;
 }
 
 .col-11 {
-  width: 91.6666667%;
+    width: 91.6666667%;
 }
 
 .col-12 {
-  width: 100%;
+    width: 100%;
 }
+
 .mb-1 {
-  margin-bottom: 0.3rem;
+    margin-bottom: 0.3rem;
 }
+
 .mb-2 {
-  margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
 }
+
 .mb-3 {
-  margin-bottom: 0.8rem;
+    margin-bottom: 0.8rem;
 }
+
 .mb-4 {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
+
 .mt-1 {
-  margin-top: 0.3rem;
+    margin-top: 0.3rem;
 }
+
 .mt-2 {
-  margin-top: 0.5rem;
+    margin-top: 0.5rem;
 }
+
 .mt-3 {
-  margin-top: 0.8rem;
+    margin-top: 0.8rem;
 }
+
 .mt-4 {
-  margin-top: 1rem;
+    margin-top: 1rem;
 }
+
 .fw-bold {
-  @include font(600, "normal");
+    @include font(600, "normal");
 }
+
 .absolute {
-  position: absolute;
+    position: absolute;
 }
 
 img {
-  height: 100%;
+    height: 100%;
 }
+
 small {
-  font-size: 80%;
+    font-size: 80%;
 }
 
 .gap-2 {
-  gap: 0.5rem;
+    gap: 0.5rem;
 }
+
 .d-flex {
-  display: flex;
+    display: flex;
 }
+
 .flex-col {
-  flex-direction: column;
+    flex-direction: column;
 }
+
 .justify-content-end {
-  justify-content: end;
+    justify-content: end;
 }
 
 .justify-content-center {
-  justify-content: center;
+    justify-content: center;
 }
+
 .justify-content-between {
-  justify-content: space-between;
+    justify-content: space-between;
 }
+
 .align-items-center {
-  align-items: center;
+    align-items: center;
 }
 
 //Styling
 a {
-  color: #cc1e26;
+    color: #cc1e26;
 }
+
 h1 {
-  margin: 0;
+    margin: 0;
 }
+
 //Forms
 label,
 small {
-  color: #ffffff;
+    color: #ffffff;
 }
+
 input {
-  width: 100%;
+    width: 100%;
 }
+
 .p-password {
-  width: 100%;
+    width: 100%;
 }
 
 //Layout
 .card {
-  border: 1px solid #dedede;
-  padding: 15px;
+    border: 1px solid #dedede;
+    padding: 15px;
+}
+
+
+//Components 
+.p-dataview-loading {
+    .p-overlay-mask {
+        position: absolute;
+        z-index: 1;
+        background: #fff;
+        display: flex;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        justify-content: center;
+
+        .p-icon {
+            color: #cc1e26;
+            width: 2rem;
+            height: 2rem;
+        }
+    }
 }
