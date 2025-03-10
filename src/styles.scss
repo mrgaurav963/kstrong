@@ -66,7 +66,9 @@ body {
 .col-12 {
   width: 100%;
 }
-
+.mb-1 {
+  margin-bottom: 0.3rem;
+}
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -75,6 +77,18 @@ body {
 }
 .mb-4 {
   margin-bottom: 1rem;
+}
+.mt-1 {
+  margin-top: 0.3rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-3 {
+  margin-top: 0.8rem;
+}
+.mt-4 {
+  margin-top: 1rem;
 }
 .fw-bold {
   @include font(600, "normal");

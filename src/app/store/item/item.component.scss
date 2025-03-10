@@ -1,0 +1,25 @@
+.product-card {
+  .product-image {
+    img {
+      width: 100%;
+    }
+  }
+
+  .product-category {
+    font-size: 11px;
+    color: #757575;
+  }
+  ::ng-deep .product-detail {
+    padding: 8px 6px;
+    .p-button-label {
+      font-size: 12px;
+      font-weight: 400;
+    }
+    .p-button-sm {
+      padding: 3px 5px;
+    }
+    .product-number {
+      font-weight: 600;
+    }
+  }
+}

@@ -21,6 +21,7 @@
       }
       + tr th {
         background: #ddd;
+        padding: 3px 12px 4px;
         button {
           padding: 0;
           width: 10px;
@@ -34,6 +35,7 @@
     .p-inputtext {
       height: 28px;
       font-size: 12px;
+      border-color: #bbbbbb;
     }
     .p-paginator-current {
       position: absolute;

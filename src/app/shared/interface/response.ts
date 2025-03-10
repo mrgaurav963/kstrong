@@ -9,3 +9,12 @@ export interface InventoryData {
   total: number;
   asOf: string;
 }
+
+export interface ProductData {
+  partNumber: string;
+  productName: string;
+  shortDescription: string;
+  categories: string;
+  price: number;
+  image: string;
+}
