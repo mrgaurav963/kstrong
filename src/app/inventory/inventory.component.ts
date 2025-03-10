@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DatagridComponent } from '../shared/component/datagrid/datagrid.component';
 import { CoreService } from '../core/core.service';
 import { InventoryData, TableData } from '../shared/interface/response';
@@ -12,13 +12,12 @@ import { BreadcrumbComponent } from '../standalone/breadcrumb/breadcrumb.compone
   styleUrl: './inventory.component.scss',
 })
 export class InventoryComponent {
+  coreService = inject(CoreService);
   tableData: TableData = {
     identifier: 'inventoryDatagrid',
     columns: INVENTORY_DATAGRID,
     dataSource: [],
   };
-
-  constructor(private coreService: CoreService) {}
 
   ngOnInit(): void {
     this.coreService.getData().subscribe((data: InventoryData[]) => {

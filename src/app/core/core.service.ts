@@ -11,7 +11,6 @@ export class CoreService {
   constructor(private http: HttpClient) {}
 
   getData(): Observable<InventoryData[]> {
-    console.log(this.jsonUrl);
     return this.http.get<InventoryData[]>(this.jsonUrl); // Returns the JSON data as an observable
   }
 }

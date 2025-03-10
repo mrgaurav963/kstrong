@@ -18,6 +18,8 @@ export class MenuComponent {
     {
       label: 'Customers',
       icon: 'pi pi-users',
+      routerLink: '/customer',
+      routerLinkActiveOptions: 'page',
     },
     {
       label: 'My Orders',

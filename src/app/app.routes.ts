@@ -4,6 +4,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { StoreComponent } from './store/store.component';
 import { authGuard } from './gaurds/auth.guard';
 import { authRedirectGuard } from './gaurds/auth-redirect.guard';
+import { CustomersComponent } from './customers/customers.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -16,6 +17,11 @@ export const routes: Routes = [
   //   path: '**',
   //   component: AccessComponent,
   // },
+  {
+    path: 'customer',
+    component: CustomersComponent,
+    canActivate: [authGuard],
+  },
   {
     path: 'inventory',
     component: InventoryComponent,
