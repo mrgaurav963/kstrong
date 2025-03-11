@@ -12,7 +12,7 @@ export class CategoriesComponent {
   productCategories = [
     {
       label: 'All Products',
-      routerLink: '/store',
+      styleClass: 'active',
     },
     { label: 'Anchor Straps' },
     { label: 'Anchors' },

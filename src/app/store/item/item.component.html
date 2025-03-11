@@ -8,11 +8,23 @@
   <div class="product-detail d-flex flex-col">
     <span class="product-category mb-1">{{ data.category }}</span>
     <div class="product-name mb-1">{{ data.productName | truncate : 12 }}</div>
-    <div class="d-flex flex-row justify-content-between">
+
+    @if(layout === 'list'){
+    <div class="product-description mb-1">
+      {{ data.shortDescription | truncate : 60 }}
+    </div>
+    }
+    <div class="sku-price d-flex flex-row justify-content-between">
       <div class="product-number mb-1">SKU {{ data.partNumber }}</div>
       <span class="product-price">{{ data.price | currency : "USD" }}</span>
     </div>
-    <p-button size="small" icon="pi pi-eye" label="View Details" routerLink="/product-detail" routerLinkActive="active"
-      ariaCurrentWhenActive="page" />
+    <p-button
+      size="small"
+      icon="pi pi-eye"
+      label="View Details"
+      routerLink="/product-detail"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    />
   </div>
 </div>

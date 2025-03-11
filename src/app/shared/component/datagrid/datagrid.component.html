@@ -2,96 +2,99 @@
   #dt2
   class="page-datagrid"
   [id]="tableData.identifier"
-  [columns]="tableData.columns"
+  [columns]="tableData.columns.columns"
   [value]="tableData.dataSource"
-  dataKey="partNumber"
+  [dataKey]="tableData.columns.keyExpr"
   [rows]="50"
   [rowsPerPageOptions]="[10, 25, 50]"
   [loading]="loading"
-  [paginator]="true"
+  [paginator]="tableData.paginator"
   [scrollable]="true"
-  [showCurrentPageReport]="true"
+  [responsive]="true"
+  [showCurrentPageReport]="tableData.showCurrentPageReport"
   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
   size="small"
   showGridlines
   stripedRows
   [exportHeader]="'customExportHeader'"
-  [globalFilterFields]="['partNumber', 'name', 'total', 'asOf']"
+  [globalFilterFields]="tableData.columns.globalFilterFields"
   [tableStyle]="{ 'min-width': '75rem' }"
 >
   <ng-template #caption>
     <div class="d-flex justify-content-between">
-      <h1>Inventory</h1>
-      <!-- <p-iconfield iconPosition="left" class="ml-auto">
-                <p-inputicon>
-                    <i class="pi pi-search"></i>
-                </p-inputicon>
-                <input
-                    pInputText
-                    type="text"
-                    (input)="dt2.filterGlobal($event.target.value, 'contains')"
-                    placeholder="Search keyword"
-                />
-            </p-iconfield> -->
+      <h1>{{ tableData.columns.caption }}</h1>
+
       <div class="text-end pb-4">
-        <p-button
-          icon="pi pi-external-link"
-          label="Export"
-          (click)="dt2.exportCSV()"
-        />
+        <div class="d-flex">
+          @if(tableData.exportEnabled){
+          <p-button
+            icon="pi pi-external-link"
+            label="Export"
+            size="small"
+            (click)="dt2.exportCSV()"
+          />
+          } @if(tableData.searchEnabled){
+          <div class="global-search">
+            <p-iconfield iconPosition="left" class="ml-auto">
+              <p-inputicon>
+                <i class="pi pi-search"></i>
+              </p-inputicon>
+              <input
+                pInputText
+                type="text"
+                [(ngModel)]="globalQuery"
+                (input)="dt2.filterGlobal(globalQuery, 'contains')"
+                placeholder="Search keyword"
+              />
+            </p-iconfield>
+          </div>
+          }
+        </div>
       </div>
     </div>
   </ng-template>
   <ng-template #header let-columns>
     <tr>
-      @for(col of columns; track col) {
+      @for(col of columns; track col) { @if(tableData.sortEnabled){
       <th pSortableColumn="{{ col.field }}">
         {{ col.header }} <p-sortIcon field="{{ col.field }}" />
       </th>
-      }
-    </tr>
-    <tr>
-      @for(col of columns; track col) {
+      }@else {
       <th>
-        <p-columnFilter
-          type="text"
-          field="{{ col.field }}"
-          placeholder="Search by {{ col.header }}"
-          ariaLabel="Filter {{ col.header }}"
-        ></p-columnFilter>
+        {{ col.header }}
       </th>
-      }
+      } }
     </tr>
   </ng-template>
-  <ng-template #body let-data>
+  <ng-template #body let-data let-expanded="expanded">
     <tr>
+      @for(cell of tableData.columns.columns; track cell){
       <td>
-        {{ data.partNumber }}
+        @if(cell.cellTemplate) { @if(cell.cellTemplate === 'inventoryTemplate'){
+        @if(!data.total){
+        <p-badge
+          value="!"
+          badgeSize="small"
+          severity="contrast"
+          pTooltip="Call 833-578-7644 for Availability"
+          tooltipPosition="right"
+        />
+        }@else {
+        <a href="#" class="expand-row" [pRowToggler]="data">
+          <i
+            [ngClass]="
+              expanded
+                ? 'pi pi-fw pi-chevron-down'
+                : 'pi pi-fw pi-chevron-right'
+            "
+          ></i>
+        </a>
+        <span [ngClass]="{ active: expanded }">{{ data.total }}</span>
+        } } }@else {
+        {{ data[cell.field] }}
+        }
       </td>
-      <td>
-        <div class="flex items-center gap-2">
-          <!-- <img
-            src="https://primefaces.org/cdn/primeng/images/demo/flag/flag_placeholder.png"
-            [class]="'flag flag-' + data.country.code"
-            style="width: 20px"
-          /> -->
-          <span>{{ data.name }}</span>
-        </div>
-      </td>
-      <td>
-        <div class="flex items-center gap-2">
-          <!-- <img
-            [alt]="customer.representative.name"
-            src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{
-              customer.representative.image
-            }}"
-            width="32"
-            style="vertical-align: middle"
-          /> -->
-          <span>{{ data.total }}</span>
-        </div>
-      </td>
-      <td>{{ data.asOf }}</td>
+      }
     </tr>
   </ng-template>
   <ng-template #emptymessage>
@@ -99,4 +102,31 @@
       <td colspan="5">No customers found.</td>
     </tr>
   </ng-template>
+  <ng-template pTemplate="expandedrow" let-data>
+    <tr class="expanded">
+      <td [attr.colspan]="tableData.columns.columns.length + 1">
+        <div class="expanded-body">
+          <app-datagrid [tableData]="getInnerTableData(data)"></app-datagrid>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
 </p-table>
+
+<!-- <p-button
+  label="Show"
+  icon="pi pi-external-link"
+  (onClick)="dialogVisible = true"
+/>
+<p-dialog
+  [(visible)]="dialogVisible"
+  header="Flex Scroll"
+  [style]="{ width: '75vw' }"
+  modal
+  [contentStyle]="{ height: '300px' }"
+>
+  <ng-template #content> </ng-template>
+  <ng-template #footer>
+    <p-button label="Ok" icon="pi pi-check" (onClick)="dialogVisible = false" />
+  </ng-template>
+</p-dialog> -->

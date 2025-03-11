@@ -1,21 +1,23 @@
-<p-menu [model]="productCategories">
-  <ng-template #item let-item>
-    <ng-container>
-      <a
-        [routerLink]="item.routerLink"
-        routerLinkActive="activeCategory"
-        ariaCurrentWhenActive="page"
-        class="p-menu-item-link"
-      >
-        <span [class]="item.icon"></span>
-        <span class="ml-2">{{ item.label }}</span>
-      </a>
-    </ng-container>
-    <!-- <ng-template #elseBlock>
+<div class="category-sidebar">
+  <p-menu [model]="productCategories">
+    <ng-template #item let-item>
+      <ng-container>
+        <a
+          [routerLink]="item.routerLink"
+          routerLinkActive="activeCategory"
+          ariaCurrentWhenActive="page"
+          class="p-menu-item-link"
+        >
+          <span [class]="item.icon"></span>
+          <span class="ml-2">{{ item.label }}</span>
+        </a>
+      </ng-container>
+      <!-- <ng-template #elseBlock>
       <a [href]="item.url" class="p-menu-item-link">
         <span [class]="item.icon"></span>
         <span class="ml-2">{{ item.label }}</span>
       </a>
     </ng-template> -->
-  </ng-template>
-</p-menu>
+    </ng-template>
+  </p-menu>
+</div>

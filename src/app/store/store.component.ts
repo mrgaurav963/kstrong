@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataViewModule } from 'primeng/dataview';
 import { SelectButton } from 'primeng/selectbutton';
 import { CommonModule } from '@angular/common';
@@ -8,14 +8,10 @@ import { ProductData } from '../shared/interface/response';
 import { CategoriesComponent } from './categories/categories.component';
 import { BreadcrumbComponent } from '../standalone/breadcrumb/breadcrumb.component';
 import { InputTextModule } from 'primeng/inputtext';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  Observable,
-  of,
-  switchMap,
-} from 'rxjs';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { IconField } from 'primeng/iconfield';
+import { InputIcon } from 'primeng/inputicon';
 
 @Component({
   selector: 'app-store',
@@ -27,15 +23,17 @@ import {
     CategoriesComponent,
     BreadcrumbComponent,
     InputTextModule,
+    FormsModule,
     ReactiveFormsModule,
+    IconField,
+    InputIcon,
   ],
   templateUrl: './store.component.html',
   styleUrl: './store.component.scss',
 })
 export class StoreComponent {
   options = ['list', 'grid'];
-  //layout: string = 'grid';
-  layout = 'grid' as 'list' | 'grid';
+  layout: 'list' | 'grid' = 'grid';
   products!: ProductData[];
   rawProducts!: ProductData[];
   loading: boolean = true;
@@ -62,10 +60,6 @@ export class StoreComponent {
       .subscribe((query) => {
         this.productSearch(query);
       });
-  }
-
-  changeLayout(e: any) {
-    this.layout = e.value;
   }
 
   productSearch(query: string) {

@@ -1,4 +1,9 @@
-.activeCategory {
-  background-color: #cc1e26;
-  color: #ffffff;
+.category-sidebar {
+  ::ng-deep .p-menu {
+    .p-menu-item.active a,
+    .activeCategory {
+      background-color: #cc1e26;
+      color: #ffffff;
+    }
+  }
 }

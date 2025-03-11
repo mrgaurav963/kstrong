@@ -17,6 +17,11 @@ export class CustomersComponent {
     identifier: 'customersDatagrid',
     columns: CUSTOMERS_DATAGRID,
     dataSource: [],
+    paginator: true,
+    showCurrentPageReport: true,
+    exportEnabled: true,
+    searchEnabled: true,
+    sortEnabled: true,
   };
   ngOnInit(): void {
     this.customerService.getData().subscribe((data: CustomersData[]) => {

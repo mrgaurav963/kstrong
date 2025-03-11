@@ -168,6 +168,22 @@ input {
   width: 100%;
 }
 
+.global-search {
+  .p-iconfield .p-inputicon:first-child {
+    inset-inline-start: auto;
+    background: #ffffff;
+    padding: 6px;
+    right: 2px;
+    top: 10px;
+  }
+  input {
+    height: 34px;
+    width: 180px;
+    padding-left: 8px !important;
+    font-size: 14px;
+  }
+}
+
 //Layout
 .card {
   border: 1px solid #dedede;
@@ -175,6 +191,20 @@ input {
 }
 
 //Components
+.category-menu {
+  .p-menu {
+    border: 0;
+
+    .p-menu-item-link {
+      padding: 4px 0px;
+    }
+    .p-menu-list {
+      li:not(:first-child) {
+        margin-left: 15px;
+      }
+    }
+  }
+}
 .container {
   .p-menubar-root-list {
     li:first-child {
