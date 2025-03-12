@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { MenuModule } from 'primeng/menu';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-categories',
-  imports: [MenuModule, RouterLink, RouterLinkActive],
+  imports: [MenuModule, RouterLink, RouterLinkActive, ButtonModule],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss',
 })

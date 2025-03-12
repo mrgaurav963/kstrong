@@ -2,6 +2,7 @@
 @media (min-width: 320px) and (max-width: 600px) {
   /* Mobile portrait styles */
   body {
+    font-size: 9px;
     .container {
       padding: 0px 10px;
       .row {
@@ -38,6 +39,77 @@
       .card {
         padding: 15px 15px 40px !important;
       }
+    }
+
+    header {
+      .top-bar {
+        .logo {
+          img {
+            width: 120px !important;
+          }
+        }
+        .user-icon {
+          padding: 0 !important;
+        }
+      }
+      .menu-bar {
+        .p-menubar-root-list {
+          li:first-child {
+            a {
+              padding-left: 12px !important;
+            }
+          }
+        }
+        .p-menubar {
+          .p-menubar-item-link,
+          .p-menubar-item-icon {
+            color: #212121 !important;
+          }
+        }
+      }
+    }
+
+    .p-datatable {
+      .datagrid-header {
+        flex-direction: column;
+      }
+    }
+
+    .store-page {
+      .products-list {
+        padding-left: 0 !important;
+        width: 100%;
+      }
+      .p-dataview {
+        .p-dataview-content {
+          .item-container {
+            width: 115px !important;
+            .product-card {
+              .product-image {
+                height: auto !important;
+              }
+              .product-detail {
+                .p-button-label {
+                  font-size: 7px;
+                }
+                .p-button-sm {
+                  padding: 0px 4px;
+                  .p-button-icon {
+                    font-size: 9px;
+                  }
+                }
+                .product-number,
+                .product-price {
+                  font-size: 7px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .category-sidebar {
+      display: none;
     }
   }
 }

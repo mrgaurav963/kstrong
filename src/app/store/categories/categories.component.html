@@ -1,5 +1,6 @@
 <div class="category-sidebar">
-  <p-menu [model]="productCategories">
+  <!-- <p-button (click)="menu.toggle($event)" icon="pi pi-ellipsis-v" /> -->
+  <p-menu #menu [model]="productCategories" [popup]="false">
     <ng-template #item let-item>
       <ng-container>
         <a
