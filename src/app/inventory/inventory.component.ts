@@ -24,23 +24,13 @@ export class InventoryComponent {
   inventoryService = inject(InventoryService);
   tableData: TableData = {
     identifier: 'inventoryDatagrid',
-    columns: INVENTORY_DATAGRID,
+    config: INVENTORY_DATAGRID,
     dataSource: [],
-    paginator: true,
-    showCurrentPageReport: true,
-    exportEnabled: true,
-    searchEnabled: true,
-    sortEnabled: true,
   };
   innerTableData: TableData = {
     identifier: 'innerTableData',
-    columns: LOCATION_INVENTORY,
+    config: LOCATION_INVENTORY,
     dataSource: [],
-    paginator: false,
-    showCurrentPageReport: false,
-    exportEnabled: false,
-    searchEnabled: false,
-    sortEnabled: false,
   };
   rawLocationInventoryData!: LocationInventoryData[];
 

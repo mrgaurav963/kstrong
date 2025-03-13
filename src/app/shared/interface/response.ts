@@ -1,12 +1,7 @@
 export interface TableData {
   identifier: string;
-  columns: any;
+  config: any;
   dataSource: InventoryData[] | CustomersData[] | LocationInventoryData[];
-  paginator: boolean;
-  showCurrentPageReport: boolean;
-  exportEnabled: boolean;
-  searchEnabled: boolean;
-  sortEnabled: boolean;
 }
 export interface InventoryData {
   partNumber: string;

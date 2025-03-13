@@ -2,60 +2,71 @@
   #dt2
   class="page-datagrid"
   [id]="tableData.identifier"
-  [columns]="tableData.columns.columns"
+  [columns]="tableData.config.columns"
   [value]="tableData.dataSource"
-  [dataKey]="tableData.columns.keyExpr"
+  [dataKey]="tableData.config.keyExpr"
   [rows]="50"
   [rowsPerPageOptions]="[10, 25, 50]"
   [loading]="loading"
-  [paginator]="tableData.paginator"
+  [paginator]="tableData.config.datagridFeatures.paginator"
   [scrollable]="true"
   [responsive]="true"
-  [showCurrentPageReport]="tableData.showCurrentPageReport"
+  [showCurrentPageReport]="
+    tableData.config.datagridFeatures.showCurrentPageReport
+  "
   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
   size="small"
   showGridlines
   stripedRows
   [exportHeader]="'customExportHeader'"
-  [globalFilterFields]="tableData.columns.globalFilterFields"
+  [globalFilterFields]="tableData.config.globalFilterFields"
   [tableStyle]="{ 'min-width': '75rem' }"
 >
   <ng-template #caption>
     <div class="datagrid-header d-flex justify-content-between">
-      <h1>{{ tableData.columns.caption }}</h1>
+      <h1>{{ tableData.config.caption }}</h1>
 
-      <div class="text-end pb-4">
-        <div class="d-flex">
-          @if(tableData.exportEnabled){
-          <p-button
-            icon="pi pi-external-link"
-            label="Export"
-            size="small"
-            (click)="dt2.exportCSV()"
-          />
-          } @if(tableData.searchEnabled){
-          <div class="global-search">
-            <p-iconfield iconPosition="left" class="ml-auto">
-              <p-inputicon>
-                <i class="pi pi-search"></i>
-              </p-inputicon>
-              <input
-                pInputText
-                type="text"
-                [(ngModel)]="globalQuery"
-                (input)="dt2.filterGlobal(globalQuery, 'contains')"
-                placeholder="Search keyword"
-              />
-            </p-iconfield>
-          </div>
-          }
+      <div class="d-flex align-items-center">
+        @if(tableData.config.datagridFeatures.addNewEnabled){
+        <p-button
+          class="add-new-item"
+          severity="primary"
+          icon="pi pi-plus"
+          label="Add New {{ tableData.config.caption }}"
+          size="small"
+          (onClick)="dialogVisible = true"
+        />
+        } @if(tableData.config.datagridFeatures.exportEnabled){
+        <p-button
+          severity="success"
+          icon="pi pi-download"
+          label="Export"
+          size="small"
+          (click)="dt2.exportCSV()"
+        />
+        } @if(tableData.config.datagridFeatures.searchEnabled){
+        <div class="global-search">
+          <p-iconfield iconPosition="left" class="ml-auto">
+            <p-inputicon>
+              <i class="pi pi-search"></i>
+            </p-inputicon>
+            <input
+              pInputText
+              type="text"
+              [(ngModel)]="globalQuery"
+              (input)="dt2.filterGlobal(globalQuery, 'contains')"
+              placeholder="Search keyword"
+            />
+          </p-iconfield>
         </div>
+        }
       </div>
     </div>
   </ng-template>
   <ng-template #header let-columns>
     <tr>
-      @for(col of columns; track col) { @if(tableData.sortEnabled){
+      @for(col of columns; track col) {
+      @if(tableData.config.datagridFeatures.sortEnabled){
       <th pSortableColumn="{{ col.field }}">
         {{ col.header }} <p-sortIcon field="{{ col.field }}" />
       </th>
@@ -68,7 +79,7 @@
   </ng-template>
   <ng-template #body let-data let-expanded="expanded">
     <tr>
-      @for(cell of tableData.columns.columns; track cell){
+      @for(cell of tableData.config.columns; track cell){
       <td>
         @if(cell.cellTemplate) { @if(cell.cellTemplate === 'inventoryTemplate'){
         @if(!data.total){
@@ -104,7 +115,7 @@
   </ng-template>
   <ng-template pTemplate="expandedrow" let-data>
     <tr class="expanded">
-      <td [attr.colspan]="tableData.columns.columns.length + 1">
+      <td [attr.colspan]="tableData.config.columns.length + 1">
         <div class="expanded-body">
           <app-datagrid [tableData]="getInnerTableData(data)"></app-datagrid>
         </div>
@@ -117,16 +128,25 @@
   label="Show"
   icon="pi pi-external-link"
   (onClick)="dialogVisible = true"
-/>
+/> -->
 <p-dialog
   [(visible)]="dialogVisible"
   header="Flex Scroll"
-  [style]="{ width: '75vw' }"
+  [style]="{ width: '40vw' }"
   modal
   [contentStyle]="{ height: '300px' }"
 >
-  <ng-template #content> </ng-template>
-  <ng-template #footer>
-    <p-button label="Ok" icon="pi pi-check" (onClick)="dialogVisible = false" />
+  <ng-template #content>
+    @if(tableData.identifier === 'customersDatagrid'){
+    <app-add-customer />
+    }
   </ng-template>
-</p-dialog> -->
+  <ng-template #footer>
+    <p-button
+      severity="secondary"
+      label="Cancel"
+      (onClick)="dialogVisible = false"
+    />
+    <p-button label="Save" (onClick)="dialogVisible = false" />
+  </ng-template>
+</p-dialog>

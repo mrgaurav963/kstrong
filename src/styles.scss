@@ -19,54 +19,67 @@ body {
 .row {
   display: flex;
   width: 100%;
+  margin: 0 -6px;
 }
 
 .col-1 {
   width: 8.33333333%;
+  padding: 0 6px;
 }
 
 .col-2 {
   width: 16.6666667%;
+  padding: 0 6px;
 }
 
 .col-3 {
   width: 25%;
+  padding: 0 6px;
 }
 
 .col-4 {
   width: 33.3333333%;
+  padding: 0 6px;
 }
 
 .col-5 {
   width: 41.6666667%;
+  padding: 0 6px;
 }
 
 .col-6 {
   width: 50%;
+  padding: 0 6px;
 }
 
 .col-7 {
   width: 58.3333333%;
+  padding: 0 6px;
 }
 
 .col-8 {
   width: 66.6666667%;
+  padding: 0 6px;
 }
 
 .col-9 {
   width: 75%;
+  padding: 0 6px;
 }
 
 .col-10 {
   width: 83.3333333%;
+  padding: 0 6px;
 }
 
 .col-11 {
   width: 91.6666667%;
+  padding: 0 6px;
 }
 
 .col-12 {
   width: 100%;
+  padding: 0 6px;
 }
 
 .mb-1 {
@@ -157,7 +170,7 @@ h1 {
 //Forms
 label,
 small {
-  color: #ffffff;
+  line-height: 14px;
 }
 
 input {

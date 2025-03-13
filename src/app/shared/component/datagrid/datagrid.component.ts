@@ -18,6 +18,7 @@ import { InputIcon } from 'primeng/inputicon';
 import { FormsModule } from '@angular/forms';
 import { BadgeModule } from 'primeng/badge';
 import { TooltipModule } from 'primeng/tooltip';
+import { AddCustomerComponent } from '../../../customers/components/add-customer/add-customer.component';
 
 @Component({
   selector: 'app-datagrid',
@@ -31,6 +32,7 @@ import { TooltipModule } from 'primeng/tooltip';
     BadgeModule,
     FormsModule,
     CommonModule,
+    AddCustomerComponent,
   ],
   templateUrl: './datagrid.component.html',
   styleUrl: './datagrid.component.scss',
@@ -39,23 +41,13 @@ export class DatagridComponent {
   @Output() requestData = new EventEmitter<void>();
   @Input() tableData: TableData = {
     identifier: '',
-    columns: {},
+    config: {},
     dataSource: [],
-    paginator: true,
-    showCurrentPageReport: true,
-    exportEnabled: true,
-    searchEnabled: true,
-    sortEnabled: true,
   };
   @Input() innerTableData: TableData = {
     identifier: '',
-    columns: {},
+    config: {},
     dataSource: [],
-    paginator: false,
-    showCurrentPageReport: false,
-    exportEnabled: false,
-    searchEnabled: false,
-    sortEnabled: false,
   };
 
   el = inject(ElementRef);

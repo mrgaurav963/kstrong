@@ -12,6 +12,14 @@ export const INVENTORY_DATAGRID = {
     { field: 'total', header: 'Total', cellTemplate: 'inventoryTemplate' },
     { field: 'asOf', header: 'As Of' },
   ],
+  datagridFeatures: {
+    paginator: true,
+    showCurrentPageReport: true,
+    exportEnabled: true,
+    searchEnabled: true,
+    sortEnabled: true,
+    addNewEnabled: false,
+  },
 };
 
 export const LOCATION_INVENTORY = {
@@ -31,6 +39,14 @@ export const LOCATION_INVENTORY = {
     { field: 'unspecifiedSite', header: 'Unspecified Site' },
     { field: 'vegas', header: 'Vegas' },
   ],
+  datagridFeatures: {
+    paginator: false,
+    showCurrentPageReport: false,
+    exportEnabled: false,
+    searchEnabled: false,
+    sortEnabled: false,
+    addNewEnabled: false,
+  },
 };
 
 export const CUSTOMERS_DATAGRID = {
@@ -48,4 +64,12 @@ export const CUSTOMERS_DATAGRID = {
     { field: 'pricingTier', header: 'Pricing Tier' },
     { field: 'status', header: 'Status' },
   ],
+  datagridFeatures: {
+    paginator: true,
+    showCurrentPageReport: true,
+    exportEnabled: true,
+    searchEnabled: true,
+    sortEnabled: true,
+    addNewEnabled: true,
+  },
 };

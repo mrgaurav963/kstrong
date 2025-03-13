@@ -1,0 +1,27 @@
+<div class="add-customer-form">
+  <form [formGroup]="profileForm">
+    <div class="row">
+      <div class="col-6">
+        <label for="account-number">Account Number: </label>
+        <input
+          pInputText
+          id="account-number"
+          type="text"
+          formControlName="accountNumber"
+          pSize="small"
+        />
+      </div>
+      <div class="col-6">
+        <label for="name">Name: </label>
+        <input
+          pInputText
+          id="name"
+          type="text"
+          formControlName="name"
+          pSize="small"
+        />
+      </div>
+    </div>
+    <div class="d-flex flex-col gap-2 mb-4"></div>
+  </form>
+</div>
