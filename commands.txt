@@ -5,3 +5,24 @@ Deploy Github Pages
 npx angular-cli-ghpages --dir=dist/portal
 
 ng build --base-href="https://kstrong.com/portal/"
+
+git config --global user.name "Gourav Sharma" and git config --global user.email "mrgaurav963@gmail.com"
+
+ssh -T mrgaurav963@gmail.com
+ssh-add gitkstrong
+
+
+
+User - gitkstrong
+password - kstrong@123
+
+1️⃣ Generate a new SSH key
+ssh-keygen -t rsa -b 4096 -C "mrgaurav963@gmail.com"
+
+2️⃣ Add the new key to the SSH agent
+eval "$(ssh-agent -s)"
+ssh-add gitkstrong
+
+3️⃣ Add the new key to GitHub
+cat gitkstrong.pub
+GitHub → Settings → SSH and GPG Keys.
