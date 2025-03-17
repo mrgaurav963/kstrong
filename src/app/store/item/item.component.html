@@ -5,9 +5,11 @@
     <p-skeleton />
     }
   </div>
-  <div class="product-detail d-flex flex-col">
+  <div class="product-detail d-flex flex-column">
     <span class="product-category mb-1">{{ data.category }}</span>
-    <div class="product-name mb-1">{{ data.productName | truncate : 12 }}</div>
+    <div class="product-name mb-1">
+      {{ data.productName | truncate : 78 : "char" }}
+    </div>
 
     @if(layout === 'list'){
     <div class="product-description mb-1">

@@ -4,13 +4,21 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'truncate',
 })
 export class TruncatePipe implements PipeTransform {
-  transform(value: string, limit: number = 12): string {
+  transform(value: string, limit: number, type?: string): string {
     if (!value) return '';
-    const words = value.split(' ');
-    if (words.length <= limit) {
-      return value;
+    if (type && type === 'char') {
+      if (value.length <= limit) {
+        return value;
+      } else {
+        return value.substring(0, limit) + '...';
+      }
     } else {
-      return words.slice(0, limit).join(' ') + '...';
+      const words = value.split(' ');
+      if (words.length <= limit) {
+        return value;
+      } else {
+        return words.slice(0, limit).join(' ') + '...';
+      }
     }
   }
 }

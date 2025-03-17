@@ -23,13 +23,13 @@
       overflow: scroll;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 9px;
 
       .item-container {
         border: 1px solid #dedede;
         border-radius: 5px;
         position: relative;
-        width: 245px;
+        width: 220px;
         max-height: min-content;
         overflow: hidden;
       }
@@ -43,6 +43,7 @@
           }
           .product-detail {
             width: 100%;
+
             .product-name {
               font-weight: 700;
             }

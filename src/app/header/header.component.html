@@ -1,6 +1,6 @@
 @if(isUserAuthentic){
 <header>
-  <div class="container">
+  <div class="container-fluid">
     <div class="top-bar d-flex justify-content-between">
       <div class="logo">
         <img src="/images/kstrong-logo.png" alt="" />
@@ -9,7 +9,7 @@
         <p-menu #menu [model]="userItems" [popup]="true" />
         <button (click)="menu.toggle($event)" class="user-icon d-flex">
           <p-avatar image="/images/avatar.jpeg" class="mr-2" shape="circle" />
-          <span class="d-flex flex-col">
+          <span class="d-flex flex-column">
             <span class="fw-bold">Derick Midcap</span>
             <span class="text-sm"
               >Manager &nbsp; &nbsp;&nbsp;&nbsp;<i
@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="menu-bar">
-    <div class="container">
+    <div class="container-fluid">
       <app-menu />
     </div>
   </div>

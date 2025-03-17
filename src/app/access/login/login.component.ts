@@ -40,12 +40,10 @@ export class LoginComponent {
       this.formGroup.value.loginId === 'derick' &&
       this.formGroup.value.password === 'secured@123'
     ) {
-      //   if (this.formGroup.loginId === 'admin' && this.password === 'admin') {
-      const mockToken = 'fake-jwt-token'; // Replace with actual token from backend
+      const mockToken = 'fake-jwt-token';
       this.authService.login(mockToken);
-      this.router.navigate(['/store']); // Redirect to home page after successful login
+      this.router.navigate(['/store']);
     } else {
-      // this.errorMessage = 'Invalid username or password';
       console.log('Error');
     }
   }

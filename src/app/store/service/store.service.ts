@@ -11,7 +11,6 @@ export class StoreService {
   constructor(private http: HttpClient) {}
 
   getData(): Observable<ProductData[]> {
-    console.log(this.jsonUrl);
     return this.http.get<ProductData[]>(this.jsonUrl); // Returns the JSON data as an observable
   }
 }

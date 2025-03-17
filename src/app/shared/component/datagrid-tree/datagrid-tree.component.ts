@@ -11,13 +11,8 @@ import { TableData } from '../../interface/response';
 export class DatagridTreeComponent {
   @Input() tableData: TableData = {
     identifier: '',
-    columns: [],
     dataSource: [],
-    paginator: true,
-    showCurrentPageReport: true,
-    exportEnabled: true,
-    searchEnabled: true,
-    sortEnabled: true,
+    config: {},
   };
   items = [
     {

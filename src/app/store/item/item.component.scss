@@ -1,7 +1,7 @@
 .product-card {
   .product-image {
     position: relative;
-    height: 249px;
+    height: auto;
 
     img {
       width: 100%;
@@ -21,7 +21,7 @@
 
   ::ng-deep .product-detail {
     padding: 8px 6px;
-
+    min-height: 140px;
     .p-button-label {
       font-size: 12px;
       font-weight: 400;

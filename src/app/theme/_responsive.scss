@@ -2,21 +2,21 @@
 @media (min-width: 320px) and (max-width: 600px) {
   /* Mobile portrait styles */
   body {
-    font-size: 9px;
-    .container {
-      padding: 0px 10px;
-      .row {
-        flex-direction: column;
-      }
-    }
-    .col-1,
-    .col-2,
-    .col-3,
-    .col-4,
-    .col-5,
-    .col-6 {
-      width: 100%;
-    }
+    font-size: 12px;
+    // .container {
+    //   padding: 0px 10px;
+    //   .row {
+    //     flex-direction: column;
+    //   }
+    // }
+    // .col-1,
+    // .col-2,
+    // .col-3,
+    // .col-4,
+    // .col-5,
+    // .col-6 {
+    //   width: 100%;
+    // }
 
     .access-page {
       overflow: hidden;
@@ -35,9 +35,18 @@
         top: 0;
         z-index: 0;
         opacity: 0.18;
+        width: 100%;
+        left: 0;
+        overflow: hidden;
       }
       .card {
         padding: 15px 15px 40px !important;
+      }
+      p {
+        font-size: 12px !important;
+      }
+      .line {
+        display: none;
       }
     }
 
