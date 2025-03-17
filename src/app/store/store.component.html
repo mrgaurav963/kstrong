@@ -1,30 +1,16 @@
-<div class="container-fluid store-page d-flex">
+<div class="container-fluid store-page">
   <div class="row">
     <div class="category-menu col-2"><app-breadcrumb /><app-categories /></div>
     <div class="products-list col-10">
-      <p-dataview
-        #dv
-        [value]="products"
-        [layout]="layout"
-        [rows]="60"
-        [paginator]="true"
-        [loading]="loading"
-      >
+      <p-dataview #dv [value]="products" [layout]="layout" [rows]="60" [paginator]="true" [loading]="loading">
         <ng-template #header>
           <div class="d-flex justify-content-between">
-            <p-selectbutton
-              [(ngModel)]="layout"
-              [options]="options"
-              [allowEmpty]="false"
-            >
+            <p-selectbutton [(ngModel)]="layout" [options]="options" [allowEmpty]="false">
               <ng-template #item let-item>
-                <i
-                  class="pi"
-                  [ngClass]="{
+                <i class="pi" [ngClass]="{
                     'pi-bars': item === 'list',
                     'pi-table': item === 'grid'
-                  }"
-                ></i>
+                  }"></i>
               </ng-template>
             </p-selectbutton>
             <div class="search-sort">
@@ -33,12 +19,7 @@
                   <p-inputicon>
                     <i class="pi pi-search"></i>
                   </p-inputicon>
-                  <input
-                    pInputText
-                    type="text"
-                    [formControl]="inputControl"
-                    placeholder="Search Product"
-                  />
+                  <input pInputText type="text" [formControl]="inputControl" placeholder="Search Product" />
                 </p-iconfield>
               </div>
             </div>
